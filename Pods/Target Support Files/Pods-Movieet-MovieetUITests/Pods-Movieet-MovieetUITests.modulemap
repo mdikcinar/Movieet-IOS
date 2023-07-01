@@ -1,0 +1,6 @@
+framework module Pods_Movieet_MovieetUITests {
+  umbrella header "Pods-Movieet-MovieetUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,7 +7,25 @@
 		<key>Movieet.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2BD675E12A50783F00D74DFC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2BD675F72A50784100D74DFC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2BD676012A50784100D74DFC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

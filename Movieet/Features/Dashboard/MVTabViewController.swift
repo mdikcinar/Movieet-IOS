@@ -7,9 +7,26 @@
 
 import UIKit
 
-class MVTabViewController: UITabBarController {
+final class MVTabViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        setupTabs()
+    }
+
+    func setupTabs() {
+        let trendsVC = MVTrendsViewController()
+
+        let trendsNavigation = UINavigationController(rootViewController: trendsVC)
+        trendsNavigation.tabBarItem = UITabBarItem(
+            title: "Trends",
+            image: UIImage(systemName: "tv"),
+            tag: 1
+        )
+
+        let navigations = [
+            trendsNavigation
+        ]
+
+        setViewControllers(navigations, animated: true)
     }
 }
