@@ -8,23 +8,69 @@
 import UIKit
 
 final class MVTrendsViewController: UIViewController {
-    private let trendMoviesListView = MVWatchableListView()
+    // MARK: - Properties
+
+    private let items = ["Movies", "Series"]
+
+    // MARK: - UI Elements
+
+    private let trendMoviesListView: MVWatchableListView = {
+        let view = MVWatchableListView()
+        view.isHidden = false
+        return view
+    }()
+
+    private lazy var segmentControl: UISegmentedControl = {
+        let view = UISegmentedControl(items: items)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.selectedSegmentIndex = 0
+        view.addTarget(self, action: #selector(tabChanged), for: .valueChanged)
+        return view
+    }()
+
+    // MARK: - Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Trends"
-        setUpView()
-    }
 
-    private func setUpView() {
-        view.addSubview(trendMoviesListView)
+        view.addSubviews(segmentControl, trendMoviesListView)
 
         NSLayoutConstraint.activate([
-            trendMoviesListView.topAnchor.constraint(equalTo: view.topAnchor),
-            trendMoviesListView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            segmentControl.topAnchor.constraint(
+                equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor,
+                multiplier: 2
+            ),
+            segmentControl.leadingAnchor.constraint(
+                equalToSystemSpacingAfter: view.leadingAnchor,
+                multiplier: 4
+            ),
+            view.trailingAnchor.constraint(
+                equalToSystemSpacingAfter: segmentControl.trailingAnchor,
+                multiplier: 4
+            ),
+            trendMoviesListView.topAnchor.constraint(
+                equalToSystemSpacingBelow: segmentControl.bottomAnchor,
+                multiplier: 2
+            ),
+            trendMoviesListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             trendMoviesListView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            trendMoviesListView.rightAnchor.constraint(equalTo: view.rightAnchor)
+            trendMoviesListView.rightAnchor.constraint(equalTo: view.rightAnchor),
+
         ])
+    }
+
+    @objc func tabChanged() {
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            trendMoviesListView.viewModel.dataSourceType = .movies
+            trendMoviesListView.reloadCollectionViewData()
+        case 1:
+            trendMoviesListView.viewModel.dataSourceType = .series
+            trendMoviesListView.reloadCollectionViewData()
+        default:
+            trendMoviesListView.viewModel.dataSourceType = .movies
+        }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MoviesService {
-    func fetchTrendMovies(completion: @escaping (Result<MVPaginated<MVWatchable>, DataError>) -> Void)
+    func fetchTrendMovies(completion: @escaping (Result<MVPaginated<MVMovie>, DataError>) -> Void)
 }
 
 final class TmdbService: MoviesService {
@@ -28,8 +28,14 @@ final class TmdbService: MoviesService {
         self.parameters = ["api_key": apiKey ?? ""]
     }
 
-    func fetchTrendMovies(completion: @escaping (Result<MVPaginated<MVWatchable>, DataError>) -> Void) {
-        NetworkManager.instance.request(url: baseApiURL + "/trending/movie/week", parameters: parameters, model: MVPaginated<MVWatchable>.self) { response in
+    func fetchTrendMovies(completion: @escaping (Result<MVPaginated<MVMovie>, DataError>) -> Void) {
+        NetworkManager.instance.request(url: baseApiURL + "/trending/movie/week", parameters: parameters, model: MVPaginated<MVMovie>.self) { response in
+            completion(response)
+        }
+    }
+
+    func fetchTrendSeries(completion: @escaping (Result<MVPaginated<MVTv>, DataError>) -> Void) {
+        NetworkManager.instance.request(url: baseApiURL + "/trending/tv/week", parameters: parameters, model: MVPaginated<MVTv>.self) { response in
             completion(response)
         }
     }

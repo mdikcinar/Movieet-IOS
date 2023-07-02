@@ -8,7 +8,7 @@
 import UIKit
 
 final class MVWatchableListView: UIView {
-    private let viewModel = MVTrendsListViewViewModel()
+    public let viewModel = MVTrendsListViewViewModel()
 
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .medium)
@@ -75,13 +75,8 @@ final class MVWatchableListView: UIView {
         collectionView.delegate = viewModel
     }
 
-    func moviesFetched() {
-        spinner.stopAnimating()
-        collectionView.isHidden = false
+    func reloadCollectionViewData() {
         collectionView.reloadData()
-        UIView.animate(withDuration: 0.3) {
-            self.collectionView.alpha = 1
-        }
     }
 }
 

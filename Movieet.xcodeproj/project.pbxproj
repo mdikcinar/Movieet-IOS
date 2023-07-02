@@ -10,6 +10,8 @@
 		12A4679A0BBE29B025F8130A /* Pods_Movieet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F274B0D46F961F208FD633E5 /* Pods_Movieet.framework */; };
 		2B0BA3FA2A50843A0015CFE5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0BA3F92A50843A0015CFE5 /* NetworkManager.swift */; };
 		2B0BA4002A5089340015CFE5 /* TmdbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0BA3FF2A5089340015CFE5 /* TmdbService.swift */; };
+		2B97FFBE2A51C42A00D5DD85 /* MVTv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B97FFBD2A51C42A00D5DD85 /* MVTv.swift */; };
+		2B97FFC02A51C43900D5DD85 /* MVMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B97FFBF2A51C43900D5DD85 /* MVMovie.swift */; };
 		2BD675E62A50783F00D74DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD675E52A50783F00D74DFC /* AppDelegate.swift */; };
 		2BD675E82A50783F00D74DFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD675E72A50783F00D74DFC /* SceneDelegate.swift */; };
 		2BD675EF2A50784100D74DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD675EE2A50784100D74DFC /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		2B0BA3F92A50843A0015CFE5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2B0BA3FF2A5089340015CFE5 /* TmdbService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbService.swift; sourceTree = "<group>"; };
 		2B35B481855E9A7BF4329ADC /* Pods-Movieet-MovieetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movieet-MovieetUITests.release.xcconfig"; path = "Target Support Files/Pods-Movieet-MovieetUITests/Pods-Movieet-MovieetUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2B97FFBD2A51C42A00D5DD85 /* MVTv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVTv.swift; sourceTree = "<group>"; };
+		2B97FFBF2A51C43900D5DD85 /* MVMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVMovie.swift; sourceTree = "<group>"; };
 		2BD675E22A50783F00D74DFC /* Movieet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movieet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD675E52A50783F00D74DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BD675E72A50783F00D74DFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				2BF591DE2A509A7D00800E9E /* MVWatchable.swift */,
+				2B97FFBD2A51C42A00D5DD85 /* MVTv.swift */,
+				2B97FFBF2A51C43900D5DD85 /* MVMovie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -576,6 +582,7 @@
 			files = (
 				2BF591E12A50A18800800E9E /* DataError.swift in Sources */,
 				2BF591E32A50A5FC00800E9E /* MVWatchableListView.swift in Sources */,
+				2B97FFBE2A51C42A00D5DD85 /* MVTv.swift in Sources */,
 				2B0BA3FA2A50843A0015CFE5 /* NetworkManager.swift in Sources */,
 				2BD676162A5078F900D74DFC /* MVTabViewController.swift in Sources */,
 				2BF591EC2A50E96300800E9E /* AppConstants.swift in Sources */,
@@ -588,6 +595,7 @@
 				2BF591E82A50A81900800E9E /* UIViewExtension.swift in Sources */,
 				2BF591DF2A509A7D00800E9E /* MVWatchable.swift in Sources */,
 				2BD675E62A50783F00D74DFC /* AppDelegate.swift in Sources */,
+				2B97FFC02A51C43900D5DD85 /* MVMovie.swift in Sources */,
 				2BD675E82A50783F00D74DFC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
