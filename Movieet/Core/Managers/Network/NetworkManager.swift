@@ -17,7 +17,7 @@ final class NetworkManager {
         url: String,
         method: HTTPMethod = .get,
         parameters: Parameters? = nil,
-        model: T.Type,
+        model: T.Type? = Data,
         completion: @escaping (Result<T, DataError>) -> Void
     ) {
         AF.request(
@@ -25,15 +25,27 @@ final class NetworkManager {
             method: method,
             parameters: parameters
         )
-        .responseString { responseString in
-            print(responseString)
+        .responseString { _ in
+            // print(responseString)
+        }
+        .responseData { response in
+            if T.Type.self == Data.Type.self {
+                switch response.result {
+                case .success(let data):
+                    completion(.success(data as! T))
+                case .failure(let error):
+                    completion(.failure(DataError.networkingError(error.localizedDescription)))
+                }
+            }
         }
         .responseDecodable(of: T.self) { response in
-            switch response.result {
-            case .success(let data):
-                completion(.success(data))
-            case .failure(let error):
-                completion(.failure(DataError.networkingError(error.localizedDescription)))
+            if T.Type.self != Data.Type.self {
+                switch response.result {
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(DataError.networkingError(error.localizedDescription)))
+                }
             }
         }
     }

@@ -8,6 +8,8 @@
 import UIKit
 
 final class MVWatchableListView: UIView {
+    private let viewModel = MVTrendsListViewViewModel()
+
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .medium)
         spinner.translatesAutoresizingMaskIntoConstraints = false
@@ -42,9 +44,11 @@ final class MVWatchableListView: UIView {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         addSubviews(collectionView, spinner)
-
         addContstraints()
         spinner.startAnimating()
+        viewModel.delegate = self
+        viewModel.fetchTrends()
+        setUpCollectionView()
     }
 
     @available(*, unavailable)
@@ -66,12 +70,23 @@ final class MVWatchableListView: UIView {
         ])
     }
 
-    func setUpCollectionView(viewController: MVTrendsViewController) {
-        collectionView.dataSource = viewController.self
-        collectionView.delegate = viewController.self
+    private func setUpCollectionView() {
+        collectionView.dataSource = viewModel
+        collectionView.delegate = viewModel
     }
 
     func moviesFetched() {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
+        collectionView.reloadData()
+        UIView.animate(withDuration: 0.3) {
+            self.collectionView.alpha = 1
+        }
+    }
+}
+
+extension MVWatchableListView: MVTrendsListViewViewModelDelegate {
+    func trendsFetched() {
         spinner.stopAnimating()
         collectionView.isHidden = false
         collectionView.reloadData()

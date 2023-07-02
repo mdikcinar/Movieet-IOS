@@ -6,15 +6,34 @@
 //
 
 import Foundation
+import UIKit
 
 final class MVTrendsCollectionViewCellViewModel {
-    public let watchableName: String
+    public let posterPath: String?
+    public let rate: String?
 
     // MARK: - Init
 
     init(
-        watchableName: String
+        posterPath: String?,
+        rate: String?
     ) {
-        self.watchableName = watchableName
+        self.posterPath = posterPath
+        self.rate = rate
+    }
+
+    public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) {
+        guard let url = posterPath else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        TmdbService.instance.fetchImage(imagePath: url) { response in
+            switch response {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }

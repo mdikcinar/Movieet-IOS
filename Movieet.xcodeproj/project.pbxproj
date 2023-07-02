@@ -27,6 +27,7 @@
 		2BF591E52A50A6DF00800E9E /* MVWatchableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF591E42A50A6DF00800E9E /* MVWatchableCollectionViewCell.swift */; };
 		2BF591E82A50A81900800E9E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF591E72A50A81900800E9E /* UIViewExtension.swift */; };
 		2BF591EA2A50ACD200800E9E /* MVTrendsCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF591E92A50ACD200800E9E /* MVTrendsCollectionViewCellViewModel.swift */; };
+		2BF591EC2A50E96300800E9E /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF591EB2A50E96300800E9E /* AppConstants.swift */; };
 		B9C0018ADBF914E30E66ECCA /* Pods_MovieetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044E82A7A206780F52912193 /* Pods_MovieetTests.framework */; };
 		CE89CE047A401243A542CE37 /* Pods_Movieet_MovieetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497F44A9856824858173528D /* Pods_Movieet_MovieetUITests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		2BF591E42A50A6DF00800E9E /* MVWatchableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVWatchableCollectionViewCell.swift; sourceTree = "<group>"; };
 		2BF591E72A50A81900800E9E /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		2BF591E92A50ACD200800E9E /* MVTrendsCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVTrendsCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		2BF591EB2A50E96300800E9E /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		497F44A9856824858173528D /* Pods_Movieet_MovieetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movieet_MovieetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7026D10ECA17757004F45AE2 /* Pods-Movieet-MovieetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movieet-MovieetUITests.debug.xcconfig"; path = "Target Support Files/Pods-Movieet-MovieetUITests/Pods-Movieet-MovieetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABF05DC96D2C4401F84AD3F5 /* Pods-MovieetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieetTests.debug.xcconfig"; path = "Target Support Files/Pods-MovieetTests/Pods-MovieetTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		2B0BA3FB2A5086980015CFE5 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				2BF591EB2A50E96300800E9E /* AppConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				2BF591E32A50A5FC00800E9E /* MVWatchableListView.swift in Sources */,
 				2B0BA3FA2A50843A0015CFE5 /* NetworkManager.swift in Sources */,
 				2BD676162A5078F900D74DFC /* MVTabViewController.swift in Sources */,
+				2BF591EC2A50E96300800E9E /* AppConstants.swift in Sources */,
 				2BD676212A507F6C00D74DFC /* MVTrendsListViewViewModel.swift in Sources */,
 				2BD6761F2A507F2100D74DFC /* MVTrendsViewController.swift in Sources */,
 				2BF591EA2A50ACD200800E9E /* MVTrendsCollectionViewCellViewModel.swift in Sources */,
