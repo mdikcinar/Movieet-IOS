@@ -17,7 +17,7 @@ final class MVWatchableListView: UIView {
         return spinner
     }()
 
-    private let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(
@@ -88,5 +88,13 @@ extension MVWatchableListView: MVTrendsListViewViewModelDelegate {
         UIView.animate(withDuration: 0.3) {
             self.collectionView.alpha = 1
         }
+    }
+
+    func firstVisibleItemIndex() -> Int? {
+        return collectionView.indexPathsForSelectedItems?.first?.row
+    }
+
+    func scrollToOffset(_ offset: CGFloat) {
+        collectionView.contentOffset = CGPoint(x: 0, y: offset)
     }
 }

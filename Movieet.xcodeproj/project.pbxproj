@@ -259,9 +259,9 @@
 		2BD6761A2A507DBB00D74DFC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				2BD6761D2A507DD700D74DFC /* ViewModels */,
 				2BD6761C2A507DCF00D74DFC /* Controllers */,
 				2BD6761B2A507DC800D74DFC /* Views */,
+				2BD6761D2A507DD700D74DFC /* ViewModels */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";

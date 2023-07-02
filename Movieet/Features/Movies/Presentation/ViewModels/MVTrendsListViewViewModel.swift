@@ -14,6 +14,8 @@ enum MVTrendsViewListDataSourceType {
 
 protocol MVTrendsListViewViewModelDelegate: AnyObject {
     func trendsFetched()
+    func firstVisibleItemIndex() -> Int?
+    func scrollToOffset(_ offset: CGFloat)
 }
 
 final class MVTrendsListViewViewModel: NSObject {
@@ -21,9 +23,12 @@ final class MVTrendsListViewViewModel: NSObject {
 
     public var dataSourceType: MVTrendsViewListDataSourceType = .movies {
         didSet {
-            // TODO: set scroll view positions
+            let offset = storedOffsets[dataSourceType, default: [:]][delegate?.firstVisibleItemIndex() ?? 0] ?? 0
+            delegate?.scrollToOffset(offset)
         }
     }
+
+    private var storedOffsets = [MVTrendsViewListDataSourceType: [Int: CGFloat]]()
 
     private var trendMovies: [MVMovie] = [] {
         didSet {
@@ -57,6 +62,7 @@ final class MVTrendsListViewViewModel: NSObject {
             switch response {
             case .success(let data):
                 self?.trendSeries = data.results
+                // TODO: Do not reload two times
                 DispatchQueue.main.async {
                     self?.delegate?.trendsFetched()
                 }
@@ -103,5 +109,22 @@ extension MVTrendsListViewViewModel: UICollectionViewDataSource, UICollectionVie
             width: width,
             height: width * 1.7
         )
+    }
+}
+
+extension MVTrendsListViewViewModel: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        setStoredOffsets(scrollView)
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            setStoredOffsets(scrollView)
+        }
+    }
+
+    func setStoredOffsets(_ scrollView: UIScrollView) {
+        let dataSourceType = dataSourceType
+        storedOffsets[dataSourceType, default: [:]][delegate?.firstVisibleItemIndex() ?? 0] = scrollView.contentOffset.y
     }
 }

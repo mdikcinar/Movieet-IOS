@@ -64,13 +64,17 @@ final class MVTrendsViewController: UIViewController {
     @objc func tabChanged() {
         switch segmentControl.selectedSegmentIndex {
         case 0:
+            trendMoviesListView.collectionView.setContentOffset(trendMoviesListView.collectionView.contentOffset, animated: false)
             trendMoviesListView.viewModel.dataSourceType = .movies
             trendMoviesListView.reloadCollectionViewData()
+
         case 1:
+            trendMoviesListView.collectionView.setContentOffset(trendMoviesListView.collectionView.contentOffset, animated: false)
             trendMoviesListView.viewModel.dataSourceType = .series
             trendMoviesListView.reloadCollectionViewData()
+
         default:
-            trendMoviesListView.viewModel.dataSourceType = .movies
+            return
         }
     }
 }

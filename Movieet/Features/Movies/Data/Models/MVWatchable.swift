@@ -8,7 +8,7 @@
 import Foundation
 
 class MVWatchable: Decodable {
-    var adult: Bool
+    let adult: Bool
     let backdropPath: String
     let id: Int
     let originalLanguage, overview: String
